@@ -1,0 +1,57 @@
+<section
+  class="container-fluid border mt-4 w-50 justify-content-center align-items-center"
+  action=""
+>
+  <form action="" class="p-3 d">
+    <div class="form-group">
+      <label for="">Author</label>
+      <input type="text" name="" id="" class="form-control" placeholder="" />
+    </div>
+    <div class="form-group">
+      <label for="">Quote</label>
+      <input
+        type="text"
+        class="form-control"
+        name=""
+        id=""
+        placeholder="Enter quote text"
+      />
+    </div>
+    <div class="form-group">
+      <label for="">Uploaded By</label> <br />
+      <input
+        type="text"
+        class="form-control"
+        name=""
+        id=""
+        placeholder="Enter your name"
+        required
+      />
+    </div>
+    <div class="text-center m-3">
+      <label for="button"></label>
+      <input type="button" class="btn btn-primary" value="Add Quote" />
+    </div>
+  </form>
+</section>
+
+<section class="container">
+  <h2>Quotes</h2>
+  <div class="border">
+    <div class="quote border">
+      <h3>By {{ username }}</h3>
+      <p>Whatever man feeds, man becomes</p>
+    </div>
+    <div class="votes">
+      <!-- <fa-icon [icon]="faCoffee" (click)="upVote()"></fa-icon>778<fa-icon [icon]="faCoffee" (click)="downVote()"></fa-icon>200 -->
+      <fa-icon [icon]="faArrowDown"></fa-icon>778<fa-icon
+        [icon]="faArrowUp"
+      ></fa-icon
+      >200
+    </div>
+    <div class="text-center">
+      <button class="btn btn-primary m-3">Quote details</button>
+    </div>
+  </div>
+</section>
+
