@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {faArrowDown, faArrowUp} from '@fortawesome/free-solid-svg-icons'
-
 
 @Component({
   selector: 'app-quote-form',
@@ -8,9 +6,6 @@ import {faArrowDown, faArrowUp} from '@fortawesome/free-solid-svg-icons'
   styleUrls: ['./quote-form.component.css']
 })
 export class QuoteFormComponent implements OnInit {
-
-  faArrowDown = faArrowDown;
-  faArrowUp = faArrowUp;
 
   constructor() { }
 

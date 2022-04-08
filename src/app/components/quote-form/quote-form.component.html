@@ -2,6 +2,7 @@
   class="container-fluid border mt-4 w-50 justify-content-center align-items-center"
   action=""
 >
+  <!-- #ngForm="quoteForm" -->
   <form action="" class="p-3 d">
     <div class="form-group">
       <label for="">Author</label>
@@ -42,16 +43,9 @@
       <h3>By {{ username }}</h3>
       <p>Whatever man feeds, man becomes</p>
     </div>
-    <div class="votes">
-      <!-- <fa-icon [icon]="faCoffee" (click)="upVote()"></fa-icon>778<fa-icon [icon]="faCoffee" (click)="downVote()"></fa-icon>200 -->
-      <fa-icon [icon]="faArrowDown"></fa-icon>778<fa-icon
-        [icon]="faArrowUp"
-      ></fa-icon
-      >200
-    </div>
+    <app-vote></app-vote>
     <div class="text-center">
       <button class="btn btn-primary m-3">Quote details</button>
     </div>
   </div>
 </section>
-
