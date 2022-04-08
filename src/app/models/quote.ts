@@ -4,9 +4,9 @@ export class Quote {
     // text!: string;
 
     constructor(
-        public id: number,
         public author: string,
-        public text: string
+        public text: string, 
+        public uploadedBy: string,
 
     ){}
 }

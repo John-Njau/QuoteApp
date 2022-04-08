@@ -1,7 +1,9 @@
 <div class="votes">
   <!-- <fa-icon [icon]="faCoffee" (click)="upVote()"></fa-icon>778<fa-icon [icon]="faCoffee" (click)="downVote()"></fa-icon>200 -->
-  <button class="btn btn-primary">
+  <button class="btn btn-success m-3">
     <fa-icon [icon]="faArrowUp" (click)="upVote()"></fa-icon> {{ upVotes }}
   </button>
-  <button type="" class="btn btn-primary"><fa-icon [icon]="faArrowDown" (click)="downVote()"></fa-icon>{{ downVotes }}</button> 
+  <button type="" class="btn btn-danger">
+    <fa-icon [icon]="faArrowDown" (click)="downVote()"></fa-icon>{{ downVotes }}
+  </button>
 </div>
