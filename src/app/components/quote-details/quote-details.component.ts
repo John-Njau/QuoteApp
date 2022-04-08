@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input} from '@angular/core';
 import { Quote } from 'src/app/models/quote'
 
 @Component({
@@ -8,13 +8,7 @@ import { Quote } from 'src/app/models/quote'
 })
 export class QuoteDetailsComponent implements OnInit {
 
-  quotes: Quote[] =[
-    new Quote('Kimani Warugongo','For he Lives Today', 'Njomo'),
-    new Quote('Kimani Warugongo','For he Lives Today', 'Njomo'),
-    new Quote('Kimani Warugongo','For he Lives Today', 'Njomo'),
-    new Quote('Kimani Warugongo','For he Lives Today', 'Njomo'),
-    new Quote('Kimani Warugongo','For he Lives Today', 'Njomo')
-  ]
+  @Input() quote!: Quote;
 
   constructor() { }
 

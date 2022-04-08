@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {faArrowDown, faArrowUp} from '@fortawesome/free-solid-svg-icons'
+import { Quote } from 'src/app/models/quote'
+import { faEllipsisV } from '@fortawesome/free-solid-svg-icons'
+
 
 @Component({
   selector: 'app-quote',
@@ -7,8 +9,14 @@ import {faArrowDown, faArrowUp} from '@fortawesome/free-solid-svg-icons'
   styleUrls: ['./quote.component.css']
 })
 export class QuoteComponent implements OnInit {
-  faArrowDown = faArrowDown;
-  faArrowUp = faArrowUp;
+
+  faEllipsisV = faEllipsisV;
+
+  quotes: Quote[] =[
+    new Quote('Kimani Warugongo','For he Lives Today', 'Njomo'),
+    new Quote('Kimani Warugongo','For he Lives Today', 'Njomo'),
+    new Quote('Kimani Warugongo','For he Lives Today', 'Njomo')
+  ]
 
   constructor() { }
 
@@ -16,4 +24,13 @@ export class QuoteComponent implements OnInit {
   }
 
   username = 'Kimani'
+
+  showDetails(i){
+    this.quotes[i].showDetails = !this.quotes[i].showDetails;
+  }
+
+  addNewQuote(quote){
+    this.quotes.push(quote)
+    
+  }
 }
