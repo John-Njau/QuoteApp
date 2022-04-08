@@ -1,1 +1,22 @@
-<app-quote-form></app-quote-form>
+<app-quote-form (addQuote)="addNewQuote($event)"></app-quote-form>
+<!-- <app-quote-form></app-quote-form> -->
+<h3>Quotes</h3>
+<div *ngFor="let quote of quotes; let i = index" class="m-5 p-3 border">
+  <div class="d-flex justify-content-between">
+   <h4>Author: {{ quote.author }}</h4> 
+    <fa-icon (click)="showDetails(i)" [icon]="faEllipsisV" class="btn btn-dark"></fa-icon>
+  </div>
+  <p>" {{ quote.text }} "</p>
+  <h6>Posted by: {{ quote.uploadedBy }}</h6>
+  <app-vote></app-vote>
+  <div class="text-center">
+    <button class="btn btn-primary m-3" (click)="showDetails(i)">
+      Quote details
+    </button>
+  </div>
+  <app-quote-details
+    *ngIf="quote.showDetails"
+    [quote]="quote"
+  ></app-quote-details>
+</div>
+<p *ngIf="quotes.length > 4">malalalalalal</p>
