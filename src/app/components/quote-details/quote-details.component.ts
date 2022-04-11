@@ -1,5 +1,6 @@
-import { Component, OnInit, Input} from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 import { Quote } from 'src/app/models/quote'
+import { VoteComponent } from '../vote/vote.component';
 
 @Component({
   selector: 'app-quote-details',
@@ -9,6 +10,17 @@ import { Quote } from 'src/app/models/quote'
 export class QuoteDetailsComponent implements OnInit {
 
   @Input() quote!: Quote;
+
+  @Output() isComplete = new EventEmitter<boolean>();
+
+  quoteDelete(complete: boolean) {
+    this.isComplete.emit(complete);
+  }
+
+  uploadedDate(){
+   const date = new Date();
+   return date.getTime
+  }
 
   constructor() { }
 

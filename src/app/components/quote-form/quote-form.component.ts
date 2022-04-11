@@ -20,10 +20,11 @@ export class QuoteFormComponent implements OnInit {
 
 
   // submitting the created quote
-  submitQuoteForm() {
+  submitQuoteForm(form) {
     this.addQuote.emit(this.newQuote);
+    // form clearing after submitting
+   form.resetForm();
     console.log(this.newQuote);
-
   }
 
   constructor() { }

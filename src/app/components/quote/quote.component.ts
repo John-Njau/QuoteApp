@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Quote } from 'src/app/models/quote'
-import { faEllipsisV } from '@fortawesome/free-solid-svg-icons'
 
 
 @Component({
@@ -10,12 +9,10 @@ import { faEllipsisV } from '@fortawesome/free-solid-svg-icons'
 })
 export class QuoteComponent implements OnInit {
 
-  faEllipsisV = faEllipsisV;
-
-  quotes: Quote[] =[
-    new Quote('Kimani Warugongo','For he Lives Today', 'Njomo'),
-    new Quote('Kimani Warugongo','For he Lives Today', 'Njomo'),
-    new Quote('Kimani Warugongo','For he Lives Today', 'Njomo')
+  quotes: Quote[] = [
+    new Quote('Kimani Warugongo', 'For he Lives Today', 'Njomo'),
+    new Quote('Schumer Schumaka', 'Whatever is Good, Whatever is noble', 'Harry Oluche'),
+    new Quote('Kimani Warugongo', 'For he Lives Today', 'Njomo')
   ]
 
   constructor() { }
@@ -23,14 +20,20 @@ export class QuoteComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  username = 'Kimani'
-
-  showDetails(i){
+  showDetails(i) {
     this.quotes[i].showDetails = !this.quotes[i].showDetails;
   }
 
-  addNewQuote(quote){
-    this.quotes.push(quote)
+  addNewQuote(quote) {
+    this.quotes.unshift(quote)
     
+  }
+  deleteQuote(isComplete, index) {
+    if (isComplete) {
+      let toDelete = confirm(`Are you sure you want to delete this quote by ${this.quotes[index].author}?`)
+      if (toDelete) {
+        this.quotes.splice(index, 1)
+      }
+    }
   }
 }
