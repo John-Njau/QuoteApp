@@ -1,28 +1,59 @@
 <app-navbar></app-navbar>
-<app-quote-form (addQuote)="addNewQuote($event)"></app-quote-form>
-<!-- <app-quote-form></app-quote-form> -->
-<h3>Quotes</h3>
-<div *ngFor="let quote of quotes; let i = index" class="m-5 p-3 border">
-  <div class="d-flex justify-content-between">
-    <h4>Author: {{ quote.author }}</h4>
-    <app-sidebutton></app-sidebutton>
-  </div>
+<section class="container" id="container1">
+  <app-quote-form (addQuote)="addNewQuote($event)"></app-quote-form>
+  <h3 class="text-center m-5">Quotes</h3>
+  <!-- <div class="col-md-8 col-lg-8 col-sm-12">
+  <div class="row">
+    <div class="col-md-8 col-lg-8 col-sm-12"> -->
+  <div class="m-5 p-3 border" id="quote-box" *ngFor="let quote of quotes; let i = index">
+    <div>
+      <div class="d-flex justify-content-between">
+        <h4>Author: {{ quote.author }}</h4>
+        <app-sidebutton></app-sidebutton>
+      </div>
 
-  <p>" {{ quote.text }} "</p>
-  <h6>Posted by: {{ quote.uploadedBy }}</h6>
-  <app-vote></app-vote>
+      <p>" {{ quote.text }} "</p>
+      <h6>Posted by: {{ quote.uploadedBy }}</h6>
+    </div>
+    <div class="d-flex votes">
+      <!-- <fa-icon [icon]="faCoffee" (click)="upVote()"></fa-icon>778<fa-icon [icon]="faCoffee" (click)="downVote()"></fa-icon>200 -->
+      <div class="upvote m-3 d-flex bg-success">
+        <fa-icon
+          [icon]="faArrowUp"
+          class="btn btn-secondary"
+          (click)="upVote(i)"
+        ></fa-icon>
+        <button class="btn text-white bg-success">{{ quote.upvote }}</button>
+      </div>
+      <div class="downvote m-3 d-flex bg-danger">
+        <fa-icon
+          class="btn btn-secondary"
+          [icon]="faArrowDown"
+          (click)="downVote(i)"
+        ></fa-icon>
+        <button class="btn text-white bg-danger ms-2">{{ quote.downvote }}</button>
+      </div>
+    </div>
 
-  <div class="text-center">
-    <button class="btn btn-primary m-3" (click)="showDetails(i)">
-      Quote details
-    </button>
-  </div>
+    <div class="text-center">
+      <button class="btn btn-primary m-3" (click)="showDetails(i)">
+        Quote details
+      </button>
+    </div>
 
-  <div *ngIf="quote.showDetails">
-    <app-quote-details [quote]="quote" (isComplete)="deleteQuote($event,i)"></app-quote-details>
+    <div *ngIf="quote.showDetails">
+      <app-quote-details
+        [quote]="quote"
+        (isComplete)="deleteQuote($event, i)"
+      ></app-quote-details>
+    </div>
   </div>
-</div>
-<p *ngIf="quotes.length > 4">
-  There are {{ quotes.length }} quotes on this page
-</p>
+  <!-- </div>
+  </div>
+  </div> -->
+
+  <p *ngIf="quotes.length > 4">
+    There are {{ quotes.length }} quotes on this page
+  </p>
+</section>
 <app-footer></app-footer>

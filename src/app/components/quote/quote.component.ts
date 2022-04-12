@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Quote } from 'src/app/models/quote'
+import { faArrowDown, faArrowUp } from '@fortawesome/free-solid-svg-icons'
+
 
 
 @Component({
@@ -10,11 +12,33 @@ import { Quote } from 'src/app/models/quote'
 export class QuoteComponent implements OnInit {
 
   quotes: Quote[] = [
-    new Quote('Kimani Warugongo', 'For he Lives Today', 'Njomo'),
-    new Quote('Schumer Schumaka', 'Whatever is Good, Whatever is noble', 'Harry Oluche'),
-    new Quote('Kimani Warugongo', 'For he Lives Today', 'Njomo')
+    new Quote('Kimani Warugongo', 'For he Lives Today', 'Njomo', 0, 0, new Date()),
+    new Quote('Schumer Schumaka', 'Whatever is Good, Whatever is noble', 'Harry Oluche', 0, 0, new Date()),
+    new Quote('Kimani Warugongo', 'For he Lives Today', 'Njomo', 0, 0, new Date()),
+    new Quote('Schumer Schumaka', 'Whatever is Good, Whatever is noble', 'Harry Oluche', 0, 0, new Date()),
   ]
 
+  addNewQuote(quote) {
+    this.quotes.unshift(quote)
+  }
+
+
+  faArrowDown = faArrowDown;
+  faArrowUp = faArrowUp;
+
+  // upVotes = 0;
+  // downVotes = 0;
+
+  upVote(i) {
+    this.quotes[i].upvote ++
+    console.log(this.quotes[i].upvote ++);
+
+  }
+  downVote(i) {
+    this.quotes[i].downvote ++
+    console.log(this.quotes[i].downvote ++);
+
+  }
   constructor() { }
 
   ngOnInit(): void {
@@ -24,10 +48,6 @@ export class QuoteComponent implements OnInit {
     this.quotes[i].showDetails = !this.quotes[i].showDetails;
   }
 
-  addNewQuote(quote) {
-    this.quotes.unshift(quote)
-    
-  }
   deleteQuote(isComplete, index) {
     if (isComplete) {
       let toDelete = confirm(`Are you sure you want to delete this quote by ${this.quotes[index].author}?`)
