@@ -12,13 +12,13 @@ import { faArrowDown, faArrowUp } from '@fortawesome/free-solid-svg-icons'
 export class QuoteComponent implements OnInit {
 
   quotes: Quote[] = [
-    new Quote('Kimani Warugongo', 'For he Lives Today', 'Njomo', 10, 0, new Date()),
-    new Quote('Schumer Schumaka', 'Whatever is Good, Whatever is noble', 'Harry Oluche', 0, 0, new Date()),
     new Quote('Kimani Warugongo', 'For he Lives Today', 'Njomo', 0, 0, new Date()),
+    new Quote('Schumer Schumaka', 'Whatever is Good, Whatever is noble', 'Harry Oluche', 0, 0, new Date()),
+    new Quote('Kimani Warugongo', 'For he Lives Today', 'Njomo', 200, 0, new Date()),
     new Quote('Schumer Schumaka', 'Whatever is Good, Whatever is noble', 'Harry Oluche', 0, 0, new Date()),
   ]
 
-  arr: number[] = this.quotes.map(quotes => quotes.upvote)
+  arr: number[] = this.quotes.map(quote => quote.upvote)
 
   highest = Math.max(...this.arr)
 
