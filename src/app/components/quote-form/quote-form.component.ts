@@ -13,17 +13,18 @@ export class QuoteFormComponent implements OnInit {
   faArrowDown = faArrowDown;
   faArrowUp = faArrowUp;
 
-  newQuote = new Quote("", "", "");
+  newQuote = new Quote("", "", "", 0, 0, new Date());
+
+  // @Output() addQuote = new EventEmitter<Quote>();
 
   @Output() addQuote = new EventEmitter<Quote>();
 
-
-
   // submitting the created quote
-  submitQuoteForm(form) {
+  submitQuoteForm() {
     this.addQuote.emit(this.newQuote);
     // form clearing after submitting
-   form.resetForm();
+  //  form.resetForm()
+
     console.log(this.newQuote);
   }
 
@@ -31,7 +32,5 @@ export class QuoteFormComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
-  username = 'Kimani'
 
 }

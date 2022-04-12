@@ -1,26 +1,53 @@
 <section
   class="container-fluid border mt-4 w-50 justify-content-center align-items-center"
+  id="form"
 >
-  <h2>Write your Quote</h2>
+  <h2 class="m-3">New Quote</h2>
+  <small class="text-danger">* Form fields cannot be blank</small>
   <!-- #ngForm="quoteForm" -->
-  <form #quoteForm="ngForm" (ngSubmit)="submitQuoteForm(quoteForm); quoteForm.resetForm()" class="p-3 d">
+  <hr/>
+  <!-- (ngSubmit)="submitQuoteForm(); quoteForm.resetForm()" -->
+  <form
+    #quoteForm="ngForm"
+  (ngSubmit)="submitQuoteForm();" 
+    class="p-3 d"
+  >
     <div class="form-group">
-      <label for="">Author</label>
+      <label for="">Author<small class="text-danger"> *</small></label>
       <input
         class="form-control"
         type="text"
         name="author"
         id="author"
         required
+        minlength="4"
         [(ngModel)]="newQuote.author"
         #author="ngModel"
       />
-      <div [hidden]="author.valid || author.pristine" class="alert alert-danger mt-1"> 
-        <p>Author is not valid</p>
+      <div
+        [hidden]="author.valid || author.pristine"
+        class="alert alert-danger mt-1"
+      >
+        <div *ngIf="author.errors?.['required']">
+          <p>You must enter author's name</p>
+        </div>
+        <div *ngIf="author.errors?.['minlength']">
+          Author's name must be at least 4 characters long.
+        </div>
       </div>
     </div>
+    <!-- <div
+        *ngIf="author.invalid && (author.dirty || author.touched)"
+        class="alert alert-danger"
+      >
+        <div *ngIf="author.errors?.['required']">Authors name is required</div>
+        <div *ngIf="author.errors?.['minlength']">
+          Name must be at least 4 characters long.
+        </div>
+      </div> -->
+
     <div class="form-group">
-      <label for="">Quote</label>
+      <label for="">Quote <small class="text-danger">*</small></label>
       <textarea
         name="quote"
         type="text"
@@ -30,11 +57,16 @@
         rows="4"
         [(ngModel)]="newQuote.text"
         required
+        #quote="ngModel"
       ></textarea>
+      <div [hidden]="quote.valid || quote.pristine" class="alert alert-danger">
+        Quote is required
+      </div>
       Quote: {{ newQuote.text }}
     </div>
     <div class="form-group">
-      <label for="">Uploaded By</label> <br />
+      <label for="">Posted By<small class="text-danger"> *</small></label>
+      <br />
       <input
         type="text"
         class="form-control"
@@ -43,27 +75,25 @@
         placeholder="Enter your name"
         [(ngModel)]="newQuote.uploadedBy"
         required
+        #uploadedBy="ngModel"
       />
+      <div
+        [hidden]="uploadedBy.valid || uploadedBy.pristine"
+        class="alert alert-danger"
+      >
+        Please enter a valid username
+      </div>
       Uploaded by: {{ newQuote.uploadedBy }}
     </div>
     <div class="text-center m-3">
       <label for="button"></label>
-      <button type="submit" class="btn btn-primary" value="">Add Quote</button>
+      <button
+        type="submit"
+        class="btn btn-primary"
+        [disabled]="!quoteForm.form.valid"
+      >
+        Add Quote
+      </button>
     </div>
   </form>
 </section>
-<!-- 
-<section class="container">
-  <h2>Quotes</h2>
-  <div class="border">
-    <div class="quote border">
-      <h3>By {{ username }}</h3>
-      <p>Whatever man feeds, man becomes</p>
-    </div>
-    <app-vote></app-vote>
-    <div class="text-center">
-      <button class="btn btn-primary m-3">Quote details</button>
-    </div>
-  </div>
-</section> -->
-<!-- <app-quote-details></app-quote-details> -->
