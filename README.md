@@ -18,7 +18,8 @@ This is a quote application where you can upload, delete and view other quotes.
 
 # Description
 
- <p>This application takes in the building blocks of angular to deliver an app that interacts with the user where they can post, update, and delete quotes on their request.</p>
+ <p>This application takes in the building blocks of angular to deliver an app that interacts with the user where they can post, update, and delete quotes on their request.
+ </p>
 
 
 
