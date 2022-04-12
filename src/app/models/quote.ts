@@ -8,6 +8,9 @@ export class Quote {
         public author: string,
         public text: string,
         public uploadedBy: string,
+        public upvote: number,
+        public downvote: number,
+        public createdOn: Date
 
     ) {
         this.showDetails = false;
