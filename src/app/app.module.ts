@@ -12,6 +12,7 @@ import { SidebuttonComponent } from './components/sidebutton/sidebutton.componen
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HighlightDirective } from './directives/highlight.directive';
+import { TimeUploadedPipe } from './time-uploaded.pipe';
 // import { TimeUploadedPipe } from './pipes/time-uploaded.pipe';
 
 @NgModule({
@@ -24,6 +25,7 @@ import { HighlightDirective } from './directives/highlight.directive';
     NavbarComponent,
     FooterComponent,
     HighlightDirective,
+    TimeUploadedPipe,
     // TimeUploadedPipe
   ],
   imports: [
