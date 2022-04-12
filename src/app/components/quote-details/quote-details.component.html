@@ -1,11 +1,14 @@
 <div>
-    Uploaded on: {{uploadedDate()}}
+    Uploaded on: {{quote.createdOn| date: 'short'}}
 </div>
 <div>
-    Upvotes: 
+    Upvotes: {{quote.upvote}} Upvotes
 </div>
 <div>
-  Downvotes:
+  Downvotes: {{quote.downvote}} Downvotes
+</div>
+<div>
+  <span class="submitted-by">Posted By: {{quote.uploadedBy}}</span>
 </div>
 <div>
   <button (click)="quoteDelete(true)" class="btn btn-danger m-3"> Delete Quote</button> 

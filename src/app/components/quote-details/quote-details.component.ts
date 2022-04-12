@@ -1,6 +1,5 @@
-import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Quote } from 'src/app/models/quote'
-import { VoteComponent } from '../vote/vote.component';
 
 @Component({
   selector: 'app-quote-details',
@@ -17,9 +16,9 @@ export class QuoteDetailsComponent implements OnInit {
     this.isComplete.emit(complete);
   }
 
-  uploadedDate(){
-   const date = new Date();
-   return date.getTime
+  uploadedDate() {
+    const date = new Date();
+    return date.getTime
   }
 
   constructor() { }
