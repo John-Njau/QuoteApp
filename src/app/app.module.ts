@@ -7,7 +7,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { QuoteComponent } from './components/quote/quote.component';
 import { QuoteDetailsComponent } from './components/quote-details/quote-details.component';
-import { VoteComponent } from './components/vote/vote.component';
 import { QuoteFormComponent } from './components/quote-form/quote-form.component';
 import { SidebuttonComponent } from './components/sidebutton/sidebutton.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -20,7 +19,6 @@ import { HighlightDirective } from './directives/highlight.directive';
     AppComponent,
     QuoteComponent,
     QuoteDetailsComponent,
-    VoteComponent,
     QuoteFormComponent,
     SidebuttonComponent,
     NavbarComponent,
