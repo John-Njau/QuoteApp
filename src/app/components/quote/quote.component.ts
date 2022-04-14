@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Quote } from 'src/app/models/quote'
 import { faArrowDown, faArrowUp } from '@fortawesome/free-solid-svg-icons'
-
+import { QuoteService } from 'src/app/quote-service/quote.service';
 
 
 @Component({
@@ -11,16 +11,16 @@ import { faArrowDown, faArrowUp } from '@fortawesome/free-solid-svg-icons'
 })
 export class QuoteComponent implements OnInit {
 
-  quotes: Quote[] = [
-    new Quote('Kimani Warugongo', 'For he Lives Today', 'Njomo', 0, 0, new Date()),
-    new Quote('Schumer Schumaka', 'Whatever is Good, Whatever is noble', 'Harry Oluche', 0, 0, new Date()),
-    new Quote('Kimani Warugongo', 'For he Lives Today', 'Njomo', 200, 0, new Date()),
-    new Quote('Schumer Schumaka', 'Whatever is Good, Whatever is noble', 'Harry Oluche', 0, 0, new Date()),
-  ]
+  quotes: Quote[];
 
-  arr: number[] = this.quotes.map(quote => quote.upvote)
+  constructor(quoteService: QuoteService) {
+    this.quotes = quoteService.getQuotes();
+  }
 
-  highest = Math.max(...this.arr)
+  highest!: number;
+  // arr: number[] = this.quotes.map(quote => quote.upvote)
+
+  // highest = Math.max(...this.arr)
 
   addNewQuote(quote) {
     this.quotes.unshift(quote)
@@ -31,16 +31,18 @@ export class QuoteComponent implements OnInit {
   faArrowUp = faArrowUp;
 
   upVote(i) {
-    this.quotes[i].upvote ++
-    console.log(this.quotes[i].upvote++);
+    var app = this.quotes[i].upvote + 1
+    this.quotes[i].upvote = app
+    let arr: number[] = this.quotes.map(quotes => quotes.upvote);
+    this.highest = Math.max(...arr)
+    console.log(this.quotes[i].upvote+1);
 
   }
   downVote(i) {
-    this.quotes[i].downvote ++
-    console.log(this.quotes[i].downvote++);
+    this.quotes[i].downvote+1
+    console.log(this.quotes[i].downvote+1);
 
   }
-  constructor() { }
 
   ngOnInit(): void {
   }

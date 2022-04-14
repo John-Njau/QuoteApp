@@ -5,13 +5,9 @@
   <h2 class="m-3">New Quote</h2>
   <small class="text-danger">* Form fields cannot be blank</small>
   <!-- #ngForm="quoteForm" -->
-  <hr/>
+  <hr />
   <!-- (ngSubmit)="submitQuoteForm(); quoteForm.resetForm()" -->
-  <form
-    #quoteForm="ngForm"
-  (ngSubmit)="submitQuoteForm();" 
-    class="p-3 d"
-  >
+  <form #quoteForm="ngForm" (ngSubmit)="submitQuoteForm()" class="p-3 d">
     <div class="form-group">
       <label for="">Author<small class="text-danger"> *</small></label>
       <input
