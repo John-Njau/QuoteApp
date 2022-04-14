@@ -39,7 +39,7 @@ export class QuoteComponent implements OnInit {
 
   }
   downVote(i) {
-    this.quotes[i].downvote+1
+    this.quotes[i].downvote++
     console.log(this.quotes[i].downvote+1);
 
   }
